@@ -1,4 +1,11 @@
 # TetrisConsole1
 Mein erster Versuch Tetris in der Console zu coden.
 
-# TeXT1
+# Beschreibung
+main.cpp - Hauptprogramm
+
+Spiel.hpp \  kern des
+Spiel.cpp /  games.
+
+Grafik.hpp \  Grafik
+Grafik.cpp /  gedöns.
