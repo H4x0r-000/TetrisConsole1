@@ -1,5 +1,5 @@
 #include <iostream>
-#include <windows.h>
+#include <stdlib.h>
 #include "Grafik.hpp"
 
 using namespace std;
@@ -7,7 +7,7 @@ using namespace std;
 
 void DrawGame(char Map[20][20], int Punkte, int Highscore)
 {
-	//Bildschirm löschen
+	//Bildschirm lÃ¶schen
 	system("cls");
 	
 	cout << "Punkte: " << Punkte << endl;
