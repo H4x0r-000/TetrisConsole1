@@ -6,7 +6,7 @@
 	Description: Ein Simples Consolen Tetris
 */
 #include <iostream>
-#include <windows.h>
+#include <stdlib.h>
 
 //Dateien
 #include "Spiel.hpp"
@@ -33,12 +33,12 @@ void Menue()
 	//Variablen
 	char Auswahl;
 	
-	//Schleife bis Benutzerbeenden ausführen
+	//Schleife bis Benutzerbeenden ausfÃ¼hren
 	do
 	{
-		system("cls");		//Bildschirm löschen
+		system("cls");		//Bildschirm lÃ¶schen
 		
-		//Menü ausgeben
+		//MenÃ¼ ausgeben
 		cout << "Tetris Console Beta1.0" << endl;
 		cout << "--------------------------------------" << endl;
 		cout << "(S)piel Starten" << endl;
@@ -57,11 +57,11 @@ void Menue()
 		}
 		else if(Auswahl == 'L' || Auswahl == 'l')
 		{
-			//Temporäre Variabele
+			//TemporÃ¤re Variabele
 			unsigned short lvl_temp;
 			
 			
-			//Wiederholen bis zur gültigen eingabe
+			//Wiederholen bis zur gÃ¼ltigen eingabe
 			do
 			{
 				//Level auswahl anzeigen
@@ -93,7 +93,7 @@ void Menue()
 		}
 		else if(Auswahl == 'B' || Auswahl == 'b')
 		{
-			//Bildschirm löschen
+			//Bildschirm lÃ¶schen
 			system("cls");
 			
 			//kleine Beendigungs ausgabe
