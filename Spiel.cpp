@@ -1,16 +1,16 @@
 #include <iostream>
-#include <windows.h>
+#include <stdlib.h>
 #include <time.h>
 #include "Spiel.hpp"
 #include "Grafik.hpp"
 
 using namespace std;
 
-//Windows "winmm.lib" für Zufalszahlen initialisieren
+//Windows "winmm.lib" fÃ¼r Zufalszahlen initialisieren
 #pragma comment (lib, "winmm.lib")
 
 //Globale Variablen
-char Blocks[7][4][4];	//5 = anz. Blöcke | 4 = Blockbreite | 4 = Blockhöhe
+char Blocks[7][4][4];	//5 = anz. BlÃ¶cke | 4 = Blockbreite | 4 = BlockhÃ¶he
 	
 //Spielfeld erstellen
 char Map[20][20];
@@ -18,7 +18,7 @@ char Map[20][20];
 //Block Objekt
 struct Block
 {
-	char Shape[4][4];		//Array für Teile
+	char Shape[4][4];		//Array fÃ¼r Teile
 	int rotation = 0;
 	int PosX;
 	int PosY;
@@ -34,7 +34,7 @@ unsigned int Spiel(unsigned short Level, int Highscore)
 	//Punkte Variable erzeugen
 	int Punkte = 0;
 	
-	//Blöcke Initialisieren
+	//BlÃ¶cke Initialisieren
 	initBlocks();
 	
 	//Spielfeld definieren
@@ -42,14 +42,14 @@ unsigned int Spiel(unsigned short Level, int Highscore)
 	{
 		for(int x = 0; x < 20; x++)
 		{
-			Map[x][y] = ' ';	//Spielfeld mit Leeren Zeichen füllen
+			Map[x][y] = ' ';	//Spielfeld mit Leeren Zeichen fÃ¼llen
 		}
 	}
 	
 	//Zufalls mit Zeit initialisieren
 	srand(time(NULL));
 		
-	//Schleifen Variable "GameOver" (Zum bestimmen der Spielgültigkeit) erstellen
+	//Schleifen Variable "GameOver" (Zum bestimmen der SpielgÃ¼ltigkeit) erstellen
 	bool GameOver = false;
 	
 	//Spiel Durchlaufen
@@ -72,7 +72,7 @@ unsigned int Spiel(unsigned short Level, int Highscore)
 			}
 		}
 		
-		//Prüfen ob Block Plaziert werden kann
+		//PrÃ¼fen ob Block Plaziert werden kann
 		if(TesteBlock(newX, newY, newRotation, B.Shape))
 		{
 			//Block Setzen
@@ -85,16 +85,16 @@ unsigned int Spiel(unsigned short Level, int Highscore)
 			
 			DrawGame(Map, Punkte, Highscore);
 			
-			//Variable für Schleifengültigkeit declarieren
+			//Variable fÃ¼r SchleifengÃ¼ltigkeit declarieren
 			bool BlockMoving = true;
 			
 			//ZeitVariable setzen
 			long LastTime = time(NULL);
 			
-			//Schleife für einzelnen Block
+			//Schleife fÃ¼r einzelnen Block
 			while(BlockMoving == true)
 			{	
-				//Prüfen ob Taste gedrückt wurde
+				//PrÃ¼fen ob Taste gedrÃ¼ckt wurde
 				if(GetKeyState(VK_LEFT) & 0x8000)
 				{
 					//neue Block Position um einen nach Links Verschieben
@@ -189,7 +189,7 @@ unsigned int Spiel(unsigned short Level, int Highscore)
 				
 				
 				
-				//Prüfen um genug Zeit für das Block-Fallen vergangen ist
+				//PrÃ¼fen um genug Zeit fÃ¼r das Block-Fallen vergangen ist
 				if(time(NULL) >= (LastTime + 1))
 				{
 					newY += 1;
@@ -239,7 +239,7 @@ unsigned int Spiel(unsigned short Level, int Highscore)
 		//Auf Spieler Warten
 		system("pause");
 	
-	//Punkte zurückgeben
+	//Punkte zurÃ¼ckgeben
 	return Punkte;
 }
 
@@ -446,10 +446,10 @@ bool TesteBlock (int X, int Y, int rotation, int LastX, int LastY, int LastRotat
 	}
 	
 	
-	//Überprüfungs Variable erstellen
+	//ÃœberprÃ¼fungs Variable erstellen
 	bool GenugPlatz = true;
 	
-	//Überprüfen ob genug Platz für Verschoben Block vorhanden ist
+	//ÃœberprÃ¼fen ob genug Platz fÃ¼r Verschoben Block vorhanden ist
 	switch(rotation)
 	{
 		case 0:
@@ -640,16 +640,16 @@ bool TesteBlock (int X, int Y, int rotation, int LastX, int LastY, int LastRotat
 			}
 	}
 	
-	//Wert Zurückgeben
+	//Wert ZurÃ¼ckgeben
 	return GenugPlatz;
 }
 
 bool TesteBlock (int X, int Y, int rotation, char Shape[4][4])
 {
-	//Überprüfungs Variable erstellen
+	//ÃœberprÃ¼fungs Variable erstellen
 	bool GenugPlatz = true;
 	
-	//Überprüfen ob genug Platz für Verschoben Block vorhanden ist
+	//ÃœberprÃ¼fen ob genug Platz fÃ¼r Verschoben Block vorhanden ist
 	switch(rotation)
 	{
 		case 0:
@@ -770,7 +770,7 @@ bool TesteBlock (int X, int Y, int rotation, char Shape[4][4])
 	}
 	
 	
-	//Wert Zurückgeben
+	//Wert ZurÃ¼ckgeben
 	return GenugPlatz;
 }
 
@@ -1011,10 +1011,10 @@ int ChangeRotation(int LastRotation)
 
 int GetTetris(int P, int Highscore)
 {
-	//Temporäre Variable erstellen
+	//TemporÃ¤re Variable erstellen
 	int Punkte = 0;
 	
-	//Prüf Variable erstellen
+	//PrÃ¼f Variable erstellen
 	bool Tetris = true;
 	
 	
@@ -1049,10 +1049,10 @@ int GetTetris(int P, int Highscore)
 			//1/4 Sekunden Warten
 			Sleep(250);
 				
-			//Temporäres Spielfeld erstellen
+			//TemporÃ¤res Spielfeld erstellen
 			char TempMap[20][20];
 			
-			//Untere Hälfte durchlaufen
+			//Untere HÃ¤lfte durchlaufen
 			for(int y = 19; y > Line+3; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1061,7 +1061,7 @@ int GetTetris(int P, int Highscore)
 				}
 			}
 			
-			//Obere Hälfte durchlaufen
+			//Obere HÃ¤lfte durchlaufen
 			for(int y = Line-1; y >= 0; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1070,7 +1070,7 @@ int GetTetris(int P, int Highscore)
 				}
 			}
 			
-			//Oberen Leeren Teil mit ' ' füllen
+			//Oberen Leeren Teil mit ' ' fÃ¼llen
 			for(int y = 0; y < 4; y++)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1104,10 +1104,10 @@ int GetTetris(int P, int Highscore)
 
 int GetTriple(int P, int Highscore)
 {
-	//Temporäre Variable erstellen
+	//TemporÃ¤re Variable erstellen
 	int Punkte = 0;
 	
-	//Prüf Variable erstellen
+	//PrÃ¼f Variable erstellen
 	bool Triple = true;
 	
 	
@@ -1142,10 +1142,10 @@ int GetTriple(int P, int Highscore)
 			//1/4 Sekunden Warten
 			Sleep(250);
 				
-			//Temporäres Spielfeld erstellen
+			//TemporÃ¤res Spielfeld erstellen
 			char TempMap[20][20];
 			
-			//Untere Hälfte durchlaufen
+			//Untere HÃ¤lfte durchlaufen
 			for(int y = 19; y > Line+2; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1154,7 +1154,7 @@ int GetTriple(int P, int Highscore)
 				}
 			}
 			
-			//Obere Hälfte durchlaufen
+			//Obere HÃ¤lfte durchlaufen
 			for(int y = Line-1; y >= 0; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1163,7 +1163,7 @@ int GetTriple(int P, int Highscore)
 				}
 			}
 			
-			//Oberen Leeren Teil mit ' ' füllen
+			//Oberen Leeren Teil mit ' ' fÃ¼llen
 			for(int y = 0; y < 3; y++)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1197,10 +1197,10 @@ int GetTriple(int P, int Highscore)
 
 int GetDouble(int P, int Highscore)
 {
-	//Temporäre Variable erstellen
+	//TemporÃ¤re Variable erstellen
 	int Punkte = 0;
 	
-	//Prüf Variable erstellen
+	//PrÃ¼f Variable erstellen
 	bool Double = true;
 	
 	
@@ -1235,10 +1235,10 @@ int GetDouble(int P, int Highscore)
 			//1/4 Sekunden Warten
 			Sleep(250);
 				
-			//Temporäres Spielfeld erstellen
+			//TemporÃ¤res Spielfeld erstellen
 			char TempMap[20][20];
 			
-			//Untere Hälfte durchlaufen
+			//Untere HÃ¤lfte durchlaufen
 			for(int y = 19; y > Line+1; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1247,7 +1247,7 @@ int GetDouble(int P, int Highscore)
 				}
 			}
 			
-			//Obere Hälfte durchlaufen
+			//Obere HÃ¤lfte durchlaufen
 			for(int y = Line-1; y >= 0; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1256,7 +1256,7 @@ int GetDouble(int P, int Highscore)
 				}
 			}
 			
-			//Oberen Leeren Teil mit ' ' füllen
+			//Oberen Leeren Teil mit ' ' fÃ¼llen
 			for(int y = 0; y < 2; y++)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1290,10 +1290,10 @@ int GetDouble(int P, int Highscore)
 
 int GetLine(int P, int Highscore)
 {
-	//Temporäre Variable erstellen
+	//TemporÃ¤re Variable erstellen
 	int Punkte = 0;
 	
-	//Prüf Variable erstellen
+	//PrÃ¼f Variable erstellen
 	bool L = true;
 	
 	
@@ -1323,10 +1323,10 @@ int GetLine(int P, int Highscore)
 			//1/4 Sekunden Warten
 			Sleep(250);
 				
-			//Temporäres Spielfeld erstellen
+			//TemporÃ¤res Spielfeld erstellen
 			char TempMap[20][20];
 			
-			//Untere Hälfte durchlaufen
+			//Untere HÃ¤lfte durchlaufen
 			for(int y = 19; y > Line; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1335,7 +1335,7 @@ int GetLine(int P, int Highscore)
 				}
 			}
 			
-			//Obere Hälfte durchlaufen
+			//Obere HÃ¤lfte durchlaufen
 			for(int y = Line-1; y >= 0; y--)
 			{
 				for(int x = 0; x < 20; x++)
@@ -1344,7 +1344,7 @@ int GetLine(int P, int Highscore)
 				}
 			}
 			
-			//Oberen Leeren Teil mit ' ' füllen
+			//Oberen Leeren Teil mit ' ' fÃ¼llen
 			for(int x = 0; x < 20; x++)
 			{
 				TempMap[x][0] = ' ';
